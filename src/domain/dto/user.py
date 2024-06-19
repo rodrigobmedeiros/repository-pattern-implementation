@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -12,4 +12,4 @@ class ItemDTO:
 class UserDTO:
     user_id: int
     user_name: str
-    items: list[ItemDTO]
+    items: list[ItemDTO] = field(default_factory=list)
