@@ -1,33 +1,23 @@
 from pydantic import BaseModel
 
 
-class ItemBase(BaseModel):
+class ItemSchema(BaseModel):
     user_id: int
     item_name: str
-
-    class Config:
-        from_attributes = True
-
-
-class ItemGet(ItemBase):
     item_id: int
 
-
-class UserBase(BaseModel):
-    user_name: str
-
     class Config:
         from_attributes = True
 
 
-class UserGet(UserBase):
+class UserSchema(BaseModel):
+    user_name: str
     user_id: int
-    items: list[ItemGet]
+    items: list[ItemSchema]
 
-
-class UserPost(UserBase):
-    items: list[ItemBase]
+    class Config:
+        from_attributes = True
 
 
 class ResponseUserGet(BaseModel):
-    data: list[UserGet]
+    data: list[UserSchema]
