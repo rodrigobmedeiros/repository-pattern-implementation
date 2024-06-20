@@ -1,8 +1,7 @@
 from src.domain.dto.user import ItemDTO, UserDTO
 from sqlalchemy import Column, ForeignKey, Integer, Table, Text
 from sqlalchemy.orm import relationship
-from src.mappers.metadata import metadata
-from src.mappers.base import mapper_registry
+from src.mappers.base import mapper_registry, metadata
 
 
 item = Table(

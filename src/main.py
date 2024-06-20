@@ -3,7 +3,7 @@ from sqlalchemy.exc import IntegrityError
 from src.api.routers.user import user_router
 from src.data.insert_seed_data import insert_initial_data
 from src.domain.orm.user import start_mappers
-from src.mappers.metadata import create_tables
+from src.mappers.base import create_tables
 from fastapi import FastAPI
 
 

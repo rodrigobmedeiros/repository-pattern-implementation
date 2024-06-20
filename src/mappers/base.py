@@ -1,9 +1,13 @@
-from sqlalchemy import inspect
-from sqlalchemy.orm import declarative_base, registry
+from sqlalchemy import inspect, Engine, MetaData
+from sqlalchemy.orm import registry
 from src.mappers.database import engine
 
-Base = declarative_base()
 mapper_registry = registry()
+metadata = MetaData()
+
+
+def create_tables(engine: Engine = engine) -> None:
+    metadata.create_all(engine)
 
 
 def orm_as_dict(orm_model):
